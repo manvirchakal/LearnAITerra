@@ -82,3 +82,13 @@ On Linux/macOS:
 ./run-terraform.sh destroy
 
 Note: Be cautious when using the destroy command as it will remove all created resources.
+
+## Setting up the Virtual Environment and Client-Side
+
+After setting up the infrastructure, please refer to the README.md file in the cloned LearnAI repository for instructions on:
+
+1. Setting up the Python virtual environment
+2. Installing required dependencies
+3. Configuring and running the client-side application
+
+You can find this README by navigating to the `/home/ec2-user/learnai` directory on your EC2 instance after the Terraform apply is complete.
