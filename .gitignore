@@ -16,3 +16,5 @@ terraform.tfstate.backup
 *.tfvars.backup
 *.tfstate.backup
 .terraform.lock.hcl
+learnai-key
+learnai-key.pub
