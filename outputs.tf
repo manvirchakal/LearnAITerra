@@ -13,3 +13,7 @@ output "s3_bucket_name" {
 output "ec2_instance_public_ip" {
   value = aws_instance.learnai_app.public_ip
 }
+
+output "knowledge_base_id" {
+  value = aws_bedrockagent_knowledge_base.learnai_kb.id
+}

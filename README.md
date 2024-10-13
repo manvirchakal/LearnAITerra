@@ -9,20 +9,26 @@ This repository contains Terraform scripts to set up the infrastructure for the 
 - Git installed
 
 ## Setup
-1. Create a .env file in the root directory with your AWS credentials:
-   AWS_ACCESS_KEY_ID=your_access_key
-   AWS_SECRET_ACCESS_KEY=your_secret_key
-   AWS_REGION=your_preferred_region
+1. Create a terraform.tfvars file in the root directory with your AWS credentials:
+
+   - aws_region     = "{your region}"
+   - aws_access_key = "{your access key}"
+   - aws_secret_key = "{your secret key}"
 
    Replace your_access_key, your_secret_key, and your_preferred_region with your actual AWS credentials and preferred region.
 
 2. The repository includes two scripts for running Terraform commands:
 
-   - For Windows (PowerShell): Run-Terraform.ps1
-   - For Linux/macOS: run-terraform.sh
+   - For Windows (PowerShell): '.\Run-Terraform.ps1'
+   - For Linux/macOS: '.\run-terraform.sh'
 
-   Make the bash script executable (Linux/macOS only):
-   chmod +x run-terraform.sh
+   Make the bash script executable (Linux/macOS only): 'chmod +x run-terraform.sh'
+
+3. Create a new key pair in AWS for the EC2 instance and name it learnai-key:
+   
+   - Run the following command to create a new key pair: 'ssh-keygen -t rsa -b 2048 -f learnai-key'
+   - This will generate learnai-key and learnai-key.pub files in the current directory.
+   - Keep the private key (learnai-key) in a secure location. The public key (learnai-key.pub) will be used in the Terraform configuration.
 
 ## Usage
 
@@ -50,6 +56,9 @@ This Terraform configuration will create:
 - An S3 bucket for storing textbooks
 - An EC2 instance for running the application
 - A security group for the EC2 instance
+- An IAM role for the EC2 instance to access S3
+- An IAM role for the EC2 instance to access AWS Bedrock
+- A Knowledge Base in AWS Bedrock
 
 ## Customization
 
@@ -62,6 +71,7 @@ After applying the Terraform configuration, you'll receive the following outputs
 - Cognito Client ID
 - S3 Bucket Name
 - EC2 Instance Public IP
+- Knowledge Base ID
 
 You can view these outputs by running:
 
